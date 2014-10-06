@@ -1,0 +1,5 @@
+http://stackoverflow.com/questions/233593/can-eclipse-be-used-to-find-all-deprecated-method-calls
+
+You can always use the grep facilities under 'Search -> File'. Eclipse can do a recursive search for @deprecated after you check on the 'consider derived resources' option box.
+
+

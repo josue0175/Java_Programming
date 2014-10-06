@@ -1,0 +1,13 @@
+[jgiles@cuauhtemoc Polymorph]$ java TestAnimal 
+Meow!
+Woof!
+Woow!
+Meow!
+Woof!
+Woow!
+Woooooooooof!
+Woooooowwwww!
+Woooooooooof!
+Woooooowwwww!
+Woooooowwwww!
+

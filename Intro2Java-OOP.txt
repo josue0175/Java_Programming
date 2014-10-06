@@ -1,0 +1,91 @@
+http://mobile.tutsplus.com/tutorials/android/java-tutorial/
+
+OOP
+======
+OOP, an object can be thought of much like a custom data type. 
+For example, you might have a Dog object, which represents the blueprint for a generic dog, with a name, breed, and gender. 
+You could then create different instances of the Dog object to represent specific dogs. Each Dog object must be created by 
+calling its constructor (a method that has the same name as the object itself, and may or may not have parameters for setting initial values). For example, the following Dog objects use a constructor with three parameters (name, breed, gender):
+
+Dog dog1 = new Dog("Lassie", collie, female);
+Dog dog2 = new Dog("Fifi", poodle, female);
+Dog dog3 = new Dog("Asta", foxterrier, male);
+
+class provides definition of object ("Dog" class/object) in Dog.java
+class describes data and behavior of object
+class behavior is defined using methods (or subroutine/function in procedural language)
+"Lassie" is instance object of the class "Dog"
+
+Inheritance
+===================================================
+The below Fish class can have two subclasses with all the features and defines object specific things using extend keywords
+
+    public class SaltwaterFish extends Fish  
+    {  
+        @Override  
+        public void makeBabyFish(Fish fishSpouse, int numBabies) {  
+            // call parent method  
+            super.makeBabyFish(fishSpouse, numBabies);  
+            // eat mate  
+            eat(fishSpouse);  
+        }  
+    }  
+
+public class Fish {  
+  
+    private String mSpecies;  
+    private String mColor;  
+    private int mSize;  
+  
+    Fish() {  
+        // generic fish  
+        mSpecies = "unknown";  
+        mColor = "unknown";  
+        mSize = 0;  
+    }  
+  
+    Fish(String species, String color, int size) {  
+        mSpecies = species;  
+        mColor = color;  
+        mSize = size;  
+    }  
+    public void eat() {  
+        // eat some algae  
+    };  
+          
+    public void eat(Fish fishToEat) {  
+        // eat another fish!  
+    };  
+          
+    public void sleep() {  
+        // sleep  
+    };  
+          
+    public void makeBabyFish(Fish fishSpouse, int numBabies) {  
+        // Make numBabies worth of baby fish with Fish spouse  
+    };  
+
+Interfaces to organize object behavior
+=============================================
+interface defines behavior that can be applied to object
+
+    public interface Swimmer  
+    {  
+        void startSwimming();  
+        void stopSwimming();  
+        void dive();   
+        void surface();   
+    }  
+
+A class like Fish could then implement the Swimmer interface (using the implements keyword) and provide implementations of the swimming behavior:
+
+public class Fish implements Swimmer {
+    // Provide implementations of the four methods within the Swimmer interface 
+}
+
+Packages
+========================
+Class hierarchies, such as our fish classes, can then be organized into packages. A package is simply a set of classes and interfaces, bundled together. Developers use namespaces to uniquely name packages. For example, we could use com.mamlambo.aquarium or com.ourclient.project.subproject as our package name to keep track of our fish-related classes.k
+
+
+

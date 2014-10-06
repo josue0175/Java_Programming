@@ -1,0 +1,80 @@
+For Example look at SimpleRest Eclipse project
+
+I. create dispatcher servlet
+mvc-dispatcher-servlet.xml:
+<context: component-scan base-package="com.spring3.controller" (scans for controllers)
+
+II. create java file/class 
+MovieController:
+
+@Controller
+@RequestMapping("/movie)
+....
+
+
+III. Create web xml to define the dispatcher and context configuration location
+web.xml
+
+<servlet-name>mvc-dispatcher...
+...
+
+IV. Careful...
+Don't use "@PathVariable" for a "@RequestMapping" annotation that does not have a "{parameter}" //see MovieController.java in "SimpleRest" Eclipse project
+
+V. Handler Mapping problems (xml/json) 
+a. Make sure to include the right handelers in the dispatcher
+b. change "headers=" line to include json,xml,etc
+
+(not generating xml...ignored code?)
+In Spring 3.1, the <mvc:annotation-driven> element enables the new annotated controller support classes -- see the what's new section in the reference documentation. In effect your AnnotationMethodHandlerAdapter is ignored. You can replace it with RequestMappingHandlerAdapter or alternatively consider using the MVC Java config where it's easier to customize the HandlerAdapter properly. See the section on configuring Spring MVC in the reference docs.
+
+EDIT: All I did was comment out the annotation-driven element
+
+VI. POSTing data in json/xml that has multiple params
+Needed to ensure my RequestBody was accepting an object of the type I was looking for...in this case "Movie"
+
+MovieController.java
+####################
+####################
+public class Movie {
+@RequestMapping(method = RequestMethod.POST, value = "/addmovie")
+    public @ResponseBody Movie addMovie(@RequestBody Movie movie){
+        
+        return DataStore.createMovie(movie);
+    }
+
+Movie.java:
+####################
+####################
+public class Movie {
+    private String movieName; //"private" means instance variable and is not shared by objects (instances of the class)
+    private Integer movieDate;
+    private Integer movieId;
+....getters and setters
+
+DataStore.java
+####################
+####################
+public class Movie {
+public class DataStore {
+    private static Map<Integer,Movie> MOVIE_MAP = new HashMap<Integer,Movie>(); //"static" means class variable and is shared
+    private static int TCOUNTER = 98;//"static" means class variable and is shared
+    
+    static {
+        Movie movie = new Movie();
+        movie.setMovieDate(1990);
+        movie.setMovieName("Spiderman");
+        createMovie(movie);
+    
+    }
+    
+   =====-> public static Movie createMovie(Movie movie) <-
+    {
+        movie.setMovieId(TCOUNTER++);
+    
+        MOVIE_MAP.put(movie.getMovieId(), movie);
+        
+        return movie;
+        
+    }
+

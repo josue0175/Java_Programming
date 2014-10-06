@@ -1,0 +1,105 @@
+
+My Coding Example - REST API Services Code (ReplicaGroup versus BusinessUnit)
+==================
+http://jdevelopment.nl/java-best-practices-5-code-to-interface-access-by-name-and-instance-data/
+replicaGroupResponse.getReplicaGroups() returns a List of type ReplicaGroup (List<ReplicaGroup>)
+
+And this is from ReplicaGroups.class:
+>> private List<ReplicaGroup> replicaGroups = new ArrayList<ReplicaGroup>();
+
+So let's create an array to hold the list of ReplicaGroups by Tenant:
+
+>> ReplicaGroups replicaGroups = new ReplicaGroups();
+>> replicaGroups.setReplicaGroups(replicaGroupResponse.getReplicaGroups());
+
+However BusinessUnits.class is implementing its list like so:
+>> private List<BusinessUnit> businessUnits = new ArrayList<BusinessUnit>();
+
+So we have create the array then cast it since businessUnitResponse.getBusinessUnits is List<BusinessUnit>
+>> BusinessUnits businessUnits = new BusinessUnits();
+>> businessUnits.setBusinessUnits((ArrayList<BusinessUnit>) businessUnitResponse.getBusinessUnits());
+            
+
+Example
+======================
+Is this an example of program to interface?
+1) Transaction t = new BankTransaction();
+
+The following only uses the concrete class without the interface
+2) BankTransaction t = new BankTransaction();
+
+
+Is (1) a better choice than (2)? Why is that? (2) and (1) yield the
+same output.
+
+public interface Transaction
+{
+public void deposit(double amt);
+}
+public class BankTransaction implements Transaction
+{
+private double balance = 100;
+public void deposit(double amt)
+{ balance += amt;
+}
+}
+public class BankTransactionTest
+{ public static void main(String[] args)
+{ Transaction t = new BankTransaction(); //program to interface??
+//BankTransaction t = new BankTransaction();
+t.deposit(200);
+}
+}
+======================
+
+
+Question: What does it mean to program to an interface?  
+
+There are some wonderful answers on here to this questions that get into all sorts of great detail about interfaces and loosely coupling code, inversion of control and so on. There are some fairly heady discussions, so I'd like to take the opportunity to break things down a bit for understanding why an interface is useful.
+
+When I first started getting exposed to interfaces, I too was confused about their relevance. I didn't understand why you needed them. If we're using a language like Java or C#, we already have inheritance and I viewed interfaces as a weaker form of inheritance and thought, "why bother?" In a sense I was right, you can think of interfaces as sort of a weak form of inheritance, but beyond that I finally understood their use as a language construct by thinking of them as means of classifying common traits or behaviors that were exhibited by potentially many non-related classes of objects.
+
+For example -- say you have a SIM game and have the following classes:
+
+ class HouseFly inherits Insect {
+   void FlyAroundYourHead();
+   void LandOnThings();
+ }
+
+ class Telemarketer inherits Person {
+   void CallDuringDinner();
+   void ContinueTalkingWhenYouSayNo();
+ }
+
+Clearly, these two objects have nothing in common in terms of direct inheritance. But, you could say they are both annoying.
+
+Let's say our game needs to have some sort of random thing that annoys the game player when they eat dinner. This could be a HouseFly or a Telemarketer or both -- but how do you allow for both with a single function? And how do you ask each different type of object to "do their annoying thing" in the same way?
+
+The key to realize is that both a Telemarketer and HouseFly share a common loosely interpreted behavior even though they are nothing alike in terms of modeling them. So, let's make an interface that both can implement:
+
+ interface IPest {
+    void BeAnnoying();
+ }
+
+
+ class HouseFly inherits Insect implements IPest {
+   void FlyAroundYourHead();
+   void LandOnThings();
+
+   void BeAnnoying() {
+     FlyAroundYourHead();
+     LandOnThings();
+   }
+ }
+
+ class Telemarketer inherits Person implements IPest {
+   void CallDuringDinner();
+   void ContinueTalkingWhenYouSayNo();
+
+   void BeAnnoying() {
+      CallDuringDinner();
+      ContinueTalkingWhenYouSayNo();
+   }
+ }
+
+We now have two classes that can each be annoying in their own way. And they do not need to derive from the same base class and share common inherent characteristics -- they simply need to satisfy the contract of IPest -- that contract is simple. You just have to BeAnnoying. In this regard, we can model the following:

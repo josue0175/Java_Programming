@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Wed Sep 24 10:08:22 EDT 2014:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (Unversioned directory): instance a816c00e-0148-a7fd-d17a-00000674fbe0 
+on database directory /home/jgiles/Documents/restapi-workspace/SpringDataJPAWeb/SpringDataJPAWeb_DB with class loader sun.misc.Launcher$AppClassLoader@2bb0bf9a 
+Loaded from file:/home/jgiles/Documents/restapi-workspace/SpringDataJPAWeb/WebContent/WEB-INF/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_60-b19
+user.dir=/home/jgiles/Documents/restapi-workspace/SpringDataJPAWeb
+os.name=Linux
+os.arch=amd64
+os.version=3.15.6-200.fc20.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

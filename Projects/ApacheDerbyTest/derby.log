@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Mon Aug 25 15:15:11 EDT 2014:
+Booting Derby (version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446)) instance a816c00e-0148-0e97-ee28-000006372068 
+on database directory /home/jgiles/sample in READ ONLY mode with class loader sun.misc.Launcher$AppClassLoader@6da21389. 
+Loaded from file:/home/jgiles/Apps/eclipse/plugins/db-derby-10.10.2.0-bin/lib/derby.jar.
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_60-b19
+user.dir=/home/jgiles/Documents/restapi-workspace/ApacheDerbyTest
+os.name=Linux
+os.arch=amd64
+os.version=3.15.6-200.fc20.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

@@ -1,0 +1,20 @@
+----------------------------------------------------------------
+Fri Aug 22 16:48:07 EDT 2014:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (Unversioned directory): instance a816c00e-0147-ff79-f299-0000029fdd30 
+on database directory /home/jgiles/SpringMVC with class loader WebappClassLoader
+  context: /DerbySpringREST
+  delegate: false
+  repositories:
+    /WEB-INF/classes/
+----------> Parent Classloader:
+org.apache.catalina.loader.StandardClassLoader@458e439a
+ 
+Loaded from file:/home/jgiles/Documents/restapi-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/DerbySpringREST/WEB-INF/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_60-b19
+user.dir=/home/jgiles/Projects/Java_Programming/DerbySpringRest
+os.name=Linux
+os.arch=amd64
+os.version=3.15.6-200.fc20.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

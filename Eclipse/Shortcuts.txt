@@ -1,0 +1,112 @@
+//
+//Ctrl+Shift+L = show all shortcuts
+
+F4 - Open Type Hierarchy
+F5 - File Package Explorer
+F11 - Debug
+Shift-F2 Show JavaDoc
+
+Searching, opening, etc
+------------
+Ctrl-Shift-R, Ctrl-Shift-T Open/Search for File/Class
+Ctrl-H Search methods, etc in Files
+Ctrl-K Search Next
+Ctrl-T Class Hierarcy
+Ctrl-alt-H goto declaration and open hierarchy
+
+Ctrl+O
+
+Debug
+-----
+Ctrl-Shift-B toggle breakpoint
+Ctrl-Shift-G Show all references
+Ctrl-G Find declarartions
+Ctrl-Shift-I inspect variable
+
+Formatting
+------------
+Ctrl-Shift-F Format code
+
+Moving Around
+-------------
+Alt+Shift+Q (release) shows shortcuts
+Alt+Shift+Q, P  Package Explorer
+F12 Activate/Focus Editor
+Ctrl+3 (type name in search bar)
+Alt+Shift+Q Q (popup dialog)
+Alt+Shift+Q, C  Console
+Alt+Shift+Q, X  Problems View
+Alt+Shift+Q, S  Search View
+Alt+Shift+Q, T  Type Hierarchy
+Alt+Shift+Q, Y  Synchronise View
+Alt+Shift+Q, X  Problems
+Ctrl+F7 Swap between Views
+
+Editing
+-------
+Ctrl+Shift+F6
+Ctrl+E Searchable list of Editors
+Ctrl-M (minimize)
+Ctrl-Arrow
+Ctrl-Shift-Enter (ShiftEnter) - Insert lines
+Alt-ArrowUp (Move Line up/down)
+Shift-Alt-Arrow = Select block
+
+Next/Previous Errors =  Crtl. or Ctrl,
+instance varialbe
+ctrl2-l
+
+Ctrl-I = fix indentation
+Ctrl-D  (Delete a row)
+Ctrl-Up/Down
+Ctrl - / (Comment lines)
+Ctrl + 1 = fix problems (create local methods)
+Ctrl + 1 = create class(new aNotYestExistingclass;)
+Alt-s-r = generate getters/setters
+Ctrl + o = insert missing import
+Ctrl + Alt + L = insert/extract local variable
+Alt + 1 (highlighted line) = Move line
+Ctrl + space = (type "main" then SC) Automatic code completion
+Ctrl + space = (highlight) then select or type ("syso") then enter
+Ctrl + space = (first type for)
+
+-Create your own template (read file)
+--Preferences->Java->Editor->Templates
+name: readfile
+" BufferReaderin; 
+blah; "
+
+Ctrl-Z/Ctrl-Y = Undo/Redo
+
+Refactoring
+------------
+Alt-Shift-R = rename class, variables, methods
+Alt-Shift-T = Generic refactoring options (Move, Interface, etc)
+Alt-Shift-M = extract a method (creates a new method in place of code)
+Alt-Shift-I = Inline method OR replace method invocation with actual method
+Alt-Shift-C = add parameter to method (affects all classes that call method)
+
+
+LocalVars:
+----------
+Alt-Shift-L = Extract/create local var (highlight "number*10") -> rename
+Alt-Shift-I = Inline the variable (replace...)
+(alt-shift-T) Extract constant
+...Introduce parameters
+
+Junit/Testing
+------------
+Shift-Alt-X T
+Shift-Alt-D T (debug mode)
+
+Misc
+-----
+Right click -> Source -> Generate setters and getters
+
+But to make it even more convenient, I always map this to ALT + SHIFT + G from
+Windows -> Preferences -> General -> Keys
+
+Generate toString;
+Alt-s+Shift-s
+
+

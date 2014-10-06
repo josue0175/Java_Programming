@@ -1,0 +1,3 @@
+//
+#release is the target name in build.xml
+ant -buildfile ./build.xml release

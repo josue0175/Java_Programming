@@ -1,0 +1,13 @@
+#The following worked for the SimpleRest application    
+
+curl -H "Content-Type:application/json" -X POST http://localhost:8080/SimpleRest/movie/addmovie --data '{ "movieName": "BoogieMan", "movieId": 99, "movieDate": 1945 }' 
+curl -v -H "Content-Type: text/xml" --data "@new.xml" http://10.243.48.173:8080/SimpleRest/movie/addmovie
+
+
+curl -H "Accept: application/json" -X GET http://localhost:8080/SimpleRest/movie/allmovies
+>>[{"movieName":"Spiderman","movieDate":1990,"movieId":98}]
+curl -H "Accept: application/json" -X GET http://localhost:8080/SimpleRest/movie/getmovie/98
+>>[{"movieName":"Spiderman","movieDate":1990,"movieId":98}]
+
+
+

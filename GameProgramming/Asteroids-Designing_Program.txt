@@ -1,0 +1,37 @@
+Questions to Ask
+================
+What is it?
+
+How would you play it?
+
+What are the objects involved?
+
+What do the objects have in common?
+
+Asteroids
+-----------
+What is it?
+
+How would you play it?
+
+What are the objects involved?
+-Player
+-Asteroid
+-Bullet
+-Flying Saucer
+
+What do the objects have in common?
+-position  - (x,y)
+-vector    - (Vx,Vy) the direction they are headed
+-direction - angle they are facing
+-speed     - how fast they are going
+-rotation speed     - how fast they should be spinning
+-size            - width and hieght
+-shape (polygon)          -
+
+Create SuperClass
+-extend to create the sub objects (Player, Bullet, etc)
+
+2. Draw the player (ship)
+a. Find the center of the 4 point polygon
+a. Find the angle of the center to the four points

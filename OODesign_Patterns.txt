@@ -1,0 +1,8 @@
+
+Iterators
+----------
+Iterator is an example of a design pattern
+In Java: Interface Iterator<E>
+*Doesn't need to know size (Lines in a file)
+
+

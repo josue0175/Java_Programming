@@ -1,0 +1,64 @@
+From Effective Java Book:
+##########
+Item 43: Return empty arrays or collections, not nulls
+
+It is not uncommon to see methods that look something like this:
+
+    private final List<Cheese> cheesesInStock = ...;
+
+    /**
+     * @return an array containing all of the cheeses in the shop,
+      *     or null if no cheeses are available for purchase.
+       */
+       public Cheese[] getCheeses() {
+               if (cheesesInStock.size() == 0)
+                   return null;
+               ...
+##########
+// From: http://viralpatel.net/blogs/most-useful-java-best-practice-quotes-java-developers/
+Quote 9: Always return empty Collections and Arrays instead of null
+
+Whenever your method is returning a collection element or an array, always make
+sure you return empty array/collection and not null. This will save a lot of if
+else testing for null elements. For instance in below example we have a getter
+method that returns employee name. If the name is null it simply return blank
+string “”.
+public String getEmployeeName() {
+        return (null==employeeName ? "": employeeName);
+}
+##########
+
+Avoiding Null Pointer Exceptions when retrieving Lists from an object
+---------------------------------------------------------------------
+My example is Switch Object :
+
+We have a list: "private List<String> fabricIds"
+
+1.) In Switch Service (Where we use the getter/setter); In order to use this
+objects getter/setter it is GOOD PRACTICE to create a new object that we can
+evaluate before using therefore avoiding NPE, Pointer Exception, Null Pointer 
+
+//We Have
+if(fabricIds != null && fabricIds.isEmpty()) {
+    //do....
+    ...
+
+//Change to 
+    List<String> fabricIds = inSwitch.getFabricIds();
+    if (fabricIds != null  && fabricIds.isEmpty()) {
+    //do....
+    ...
+
+2.) Also, we initialize the assetIdentifiers List on a "set" operation
+//Instead of this...
+public void setAssetIdentifiers(List<String> assetIdentifiers) {
+    this.assetIdentifiers = assetIdentifiers;
+}
+
+//We initialize the list
+public void setAssetIdentifiers(List<String> assetIdentifiers) {
+    if (assetIdentifiers == null) {
+        assetIdentifiers = new ArrayList<String>();
+    }
+    this.assetIdentifiers = assetIdentifiers;
+}
